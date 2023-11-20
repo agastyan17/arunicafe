@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --primary : #112D4E;
+    --tertiary : #F9F7F7;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.custom-navbar {
+    background: transparent!important;
+}
+.custom-navlink {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+}
+.pri-btn {
+    background-color: var(--primary);
+    color: var(--tertiary);
+    padding: 5px 20px;
+    border-radius: 50px;
+    border: none;
+    font-size: 18px;
+    
+}
+
+#home {
+    color: var(--primary);
+}
+#home h5 {
+    font-size: 20px;
+    font-weight: 600;
+}
+#home h1 {
+    font-size: 58px;
+    font-weight: 800;
+}
+#home p {
+    font-size: 20px;
+}
+
+#sign h3 {
+    color: var(--primary);
+}
+#sign .carousel-inner {
+    border-radius: 80px 80px 0px 0px;
+    background-color: var(--primary);
+}
+#sign .carousel-control-prev, .carousel-control-next {
+    width: 6%;
+}
+#sign button img {
+    width: 16px;
+}
+
+#about {
+    color: var(--primary);
+}
+#about h1 {
+    font-size: 50px;
+}
+#about p {
+    font-size: 18px;
+    font-weight: 600;
+}
