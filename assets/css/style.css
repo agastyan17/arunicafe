@@ -2,6 +2,7 @@
 
 :root {
     --primary : #112D4E;
+    --secondary: #3F72AF;
     --tertiary : #F9F7F7;
 }
 
@@ -19,7 +20,7 @@ body {
 }
 .custom-navlink {
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--primary);
 }
 .pri-btn {
@@ -29,9 +30,20 @@ body {
     border-radius: 50px;
     border: none;
     font-size: 18px;
-    
+}
+.sec-btn {
+    background-color: transparent;
+    color: var(--primary);
+    padding: 3px 25px;
+    border-radius: 50px;
+    border: solid 1px var(--primary);
+    font-weight: 700;
+    font-size: 16px;
 }
 
+.navbar-nav .active {
+    text-decoration: underline var(--primary) 3px;
+}
 #home {
     color: var(--primary);
 }
