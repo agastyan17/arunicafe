@@ -1,0 +1,34 @@
+:root {
+    --primary : #112D4E;
+    --secondary: #3F72AF;
+    --tertiary : #F9F7F7;
+}
+
+* {
+    color: var(--primary);
+}
+
+#order {
+    width: 450px;
+}
+.wrapper {
+    border: solid 1px var(--primary);
+    border-radius: 20px;
+}
+.title {
+    font-size: 32px;
+}
+.custom {
+    font-size: 20px;
+    margin: 0;
+}
+select {
+    border: none;
+    font-weight: bold;
+    text-decoration: underline 1px var(--primary);
+}
+.line {
+    width: 90%;
+    height: 2px;
+    background-color: var(--primary);
+}

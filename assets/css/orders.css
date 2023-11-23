@@ -1,0 +1,24 @@
+:root {
+    --primary : #112D4E;
+    --secondary: #3F72AF;
+    --tertiary : #F9F7F7;
+}
+
+* {
+    color: var(--primary);
+}
+
+.tbl {
+    width: 100%;
+}
+.table td, .table th{
+    color: var(--primary);
+}
+.pay {
+    padding: 50px 30px 20px 30px;
+    border: 1px solid var(--primary);
+    border-radius: 100% 100% 0 0 ;
+}
+.pay td {
+    font-weight: bold;
+}

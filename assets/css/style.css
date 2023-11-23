@@ -83,3 +83,15 @@ body {
     font-size: 18px;
     font-weight: 600;
 }
+
+#contact {
+    color: var(--primary);
+}
+#contact p {
+    margin: 0;
+}
+#contact input, #contact textarea {
+    border: 1px solid var(--primary);
+    border-radius: 20px;
+    margin: 10px 0px;
+}
