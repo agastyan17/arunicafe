@@ -84,9 +84,12 @@
                       </td>
                   </tr>
               </table>
-              <div class="qty my-3">
-                <input type="number" id="qty" name="qty">
+              <div class="qty my-2">
+                <span class="fw-bold decrease">-</span>
+                <input type="text" inputmode="numeric" value="1" id="qty" name="qty" class="text-center fw-bold" disabled>
+                <span class="fw-bold increase">+</span>
               </div>
+              <input type="text" value="89.000" class="text-center fw-bold mb-2" id="price" name="price" disabled>
               <button class="pri-btn mb-3" type="submit">add to order</button>
             </form>
         </div>
@@ -95,5 +98,34 @@
 
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('.qty').on('click', '.decrease', function() {
+          updateQuantity(-1);
+        });
+    
+        $('.qty').on('click', '.increase', function() {
+          updateQuantity(1);
+        });
+    
+        function updateQuantity(value) {
+          var currentQty = parseInt($('#qty').val());
+          var newQty = currentQty + value;
+    
+          if (newQty >= 1) {
+            $('#qty').val(newQty);
+            updatePrice(newQty);
+          }
+        }
+        
+        function updatePrice(qty) {
+          var price = 89.000;
+          var total = (qty * price).toFixed(3);
+          $('#price').val(total);
+        }
+      });
+    </script>
 </body>
 </html>

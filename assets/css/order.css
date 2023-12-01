@@ -32,3 +32,20 @@ select {
     height: 2px;
     background-color: var(--primary);
 }
+.qty {
+    font-size: 20px;
+}
+.qty span {
+    cursor: pointer;
+}
+#qty {
+    border: none;
+    background-color: transparent;
+    width: 25px;
+}
+#price {
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    font-size: 35px;
+}
