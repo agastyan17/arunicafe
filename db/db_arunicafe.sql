@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 01:05 AM
+-- Generation Time: Dec 03, 2023 at 04:29 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,7 +35,7 @@ CREATE TABLE `tb_menu` (
   `item` varchar(50) NOT NULL,
   `price` varchar(20) NOT NULL,
   `image` blob DEFAULT NULL,
-  `type` enum('beverage','pastry','coffee') NOT NULL
+  `type` enum('beverage','dessert','coffee') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -46,6 +46,7 @@ CREATE TABLE `tb_menu` (
 
 DROP TABLE IF EXISTS `tb_orders`;
 CREATE TABLE `tb_orders` (
+  `id_orders` int(11) NOT NULL,
   `item` varchar(50) NOT NULL,
   `price` varchar(20) NOT NULL,
   `qty` int(11) NOT NULL,
@@ -79,6 +80,12 @@ ALTER TABLE `tb_menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
+-- Indexes for table `tb_orders`
+--
+ALTER TABLE `tb_orders`
+  ADD PRIMARY KEY (`id_orders`);
+
+--
 -- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
@@ -87,6 +94,12 @@ ALTER TABLE `tb_user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tb_orders`
+--
+ALTER TABLE `tb_orders`
+  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
