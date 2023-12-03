@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light p-5 custom-navbar">
-            <a class="navbar-brand order-0" href="landing.html">arunicafe</a>
+            <a class="navbar-brand order-0 fw-bold" href="landing.html">arunicafe</a>
           
             <div class="navbar-nav row ms-auto order-sm-3">
               <a class="nav-item nav-link">
@@ -47,11 +47,56 @@
             <div class="col col-lg-6" id="text">
                 <h5 class="mb-5">In every cup and crumb</h5>
                 <h1 class="mb-5">Elevate your day with our brews and bites</h1>
-                <p class="mb-5">Immerse yourself in the world of handpicked coffee beans and artisanal pastries, where every cup and bite is a work of art</p>
+                <p class="mb-5">Immerse yourself in the world of handpicked coffee beans and artisanal desserts, where every cup and bite is a work of art</p>
                 <button class="pri-btn">order now</button>
             </div>
         </div>
-        <div class="p-5 m-5"></div>
+
+        <div class="container d-flex flex-column mx-auto text-center my-5 py-5" id="cards">
+          <div class="mb-4">
+            <h3 class="fw-bold">Explore Our Menu</h3>
+            <p> refreshing beverages to aromatic coffees and decadent desserts,<br>each item is a delightful discovery.</p>
+          </div>
+          <div class="row d-flex align-self-center">
+            <div class="col col-lg-4 my-3">
+              <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-body">
+                  <div class="card-img" style="height: 15rem;">
+                    <img src="assets/imgs/menu-4.png" class="card-img-top" alt="...">
+                  </div>
+                  <h5 class="card-title fw-bold">Beverages</h5>
+                  <p class="card-text">Sip on the bold flavors of our signature beverages.</p>
+                  <a href="menu.html" class="pri-btn">discover more</a>
+                </div>
+              </div>
+            </div>
+            <div class="col col-lg-4 my-3">
+              <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-body">
+                  <div class="card-img" style="height: 15rem;">
+                    <img src="assets/imgs/menu-3.png" class="card-img-top" alt="...">
+                  </div>
+                  <h5 class="card-title fw-bold">Coffees</h5>
+                  <p class="card-text">Embrace the day with the velvety perfection of a coffee.</p>
+                  <a href="menu.html" class="pri-btn">coffee menu</a>
+                </div>
+              </div>
+            </div>
+            <div class="col col-lg-4 my-3">
+              <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-body">
+                  <div class="card-img" style="height: 15rem;display: flex;align-items: center;">
+                    <img src="assets/imgs/stawberry-cake.png" class="card-img-top" alt="...">
+                  </div>
+                  <h5 class="card-title fw-bold">Desserts</h5>
+                  <p class="card-text">Indulge in the classic elegance of our dessert creations.</p>
+                  <a href="menu.html" class="pri-btn">order dessert</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="container d-flex flex-column" id="sign">
             <h3 class="text-center fw-bold mb-5">Our Signatures!</h3>
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -84,19 +129,22 @@
                   <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <a href="menu.html" class="ms-auto"><button href="menu.html" class="pri-btn mt-3">menu <img src="assets/icons/arrow.png" alt=""></button></a>
+            <a href="menu.html" class="ms-auto"><button href="menu.html" class="pri-btn mt-3">see more <img src="assets/icons/arrow.png" alt=""></button></a>
         </div>
+
         <div class="p-5 m-5"></div>
+
         <div class="container row mx-auto" id="about">
             <h1 class="col-12 fw-bold mb-5">arunicafe</h1>
             <div class="col-12 col-lg-6 ms-auto">
                 <img class="mb-3" src="assets/icons/line-md_coffee-arrow.png" alt="">
-                <p>we draw inspiration from the Sanskrit word 'Arunika', meaning 'early morning sunlight'. just as the dawn signals the beginning of a new day, our cafe is dedicated to starting your day on a bright and flavorful note.</p>
+                <p>we draw inspiration from the Sanskrit word 'Arunika', meaning 'early morning sunlight'.<br>just as the dawn signals the beginning of a new day, our cafe is dedicated to starting your day on a bright and flavorful note.</p>
             </div>
         </div>
+        
         <div class="p-5 m-5"></div>
         
-        <div class="container row mx-auto" id="contact">
+        <div class="container row mx-auto pb-5" id="contact">
           <div class="col col-lg-8 order-lg-2">
               <form action="" class="d-flex flex-column">
                   <label class="fw-bold " for="name">Name</label>
@@ -108,15 +156,11 @@
           </div>
           <div class="col col-12 col-lg-4 align-self-center">
             <div class="row">
-              <div class="col-6 col-lg-12">
+              <div class="col-6 col-lg-12 py-5">
                 <p class="fw-bold fs-4">Social Media</p>
-                <div class="row">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                </div>
+                <img src="assets/imgs/socmed.png" alt="">
               </div>
-              <div class="col-6 col-lg-12">
+              <div class="col-6 col-lg-12 py-5">
                 <p class="fw-bold fs-4">Talk to us</p>
                 <p>+62 8 1752689734980</p>
                 <p>arunicafe@miaw.com</p>
@@ -125,7 +169,31 @@
             </div>
       </div>
 
+      <div class="p-5 m-5"></div>
+
     </main>
+    <footer>
+      <div class="row mx-auto d-flex justify-content-around align-items-center text-center text-md-start pt-5">
+        <div class="col-12 col-md-3 col-lg-2">
+          <h4 class="fw-bold">Follow us on</h4>
+          <img src="assets/imgs/socmed-white.png" alt="">
+        </div>
+        <div class="col-12 p-3 col-md-4">
+          <h4 class="fw-bold">Arunicafe</h4>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint ipsam quod necessitatibus. Ex architecto ratione obcaecati neque laborum repellendus saepe sunt maxime! Amet explicabo incidunt fugit velit nesciunt nihil blanditiis!</p>
+        </div>
+        <div class="col-12 p-3 col-md-3 col-lg-2 text-md-end">
+          <h4 class="fw-bold">Contacts</h4>
+          <p>arunicafe@miaw.com</p>
+          <p>+62 9 1234569676</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row container d-flex justify-content-between mx-auto">
+        <p class="col-6 text-start"><span class="fw-bold">Copyright &copy;</span> 2023 Arunicafe</p>
+        <p class="col-6 text-end">Terms of Use | Privacy Policy</p>
+      </div>
+    </footer>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
