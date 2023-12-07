@@ -21,14 +21,6 @@
     display: flex;
     gap: 20px;
 }
-.menu-list li {
-    color: var(--secondary);
-    font-weight: 600;
-}
-.menu-list li.active {
-    color: var(--primary);
-}
-
 .menu {
     color: var(--primary);
 }

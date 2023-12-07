@@ -15,38 +15,38 @@ require_once('conn.php');
 </head>
 
 <body>
-<header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-light p-5 custom-navbar">
-            <a class="navbar-brand order-0 fw-bold" href="landing.html">arunicafe</a>
-          
-            <div class="navbar-nav row ms-auto order-sm-3">
-              <a class="nav-item nav-link">
-                <div>
-                  <a href="orders.html"><img class="px-2" src="assets/icons/bytesize_bag.svg" alt=""></a>
-                  <a href="signin.html"><img class="px-2" src="assets/icons/prime_user.svg" alt=""></a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-                </div>
-              </a>
-            </div>
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light p-5 custom-navbar">
+      <a class="navbar-brand order-0 fw-bold" href="landing.html">arunicafe</a>
 
-            <div class="navbar-collapse collapse justify-content-sm-center order-sm-2" id="navbarNav" style>
-              <ul class="navbar-nav">
-                <li class="nav-item mx-1 mx-md-4">
-                  <a class="nav-link custom-navlink" href="menu.php">Menu</span></a>
-                </li>
-                <li class="nav-item mx-1 mx-md-4">
-                  <a class="nav-link custom-navlink" href="landing.html#about">About</a>
-                </li>
-                <li class="nav-item mx-1 mx-md-4">
-                  <a class="nav-link custom-navlink" href="landing.html#contact">Contact</a>
-                </li>
-              </ul>
-            </div>
+      <div class="navbar-nav row ms-auto order-sm-3">
+        <a class="nav-item nav-link">
+          <div>
+            <a href="orders.php"><img class="px-2" src="assets/icons/bytesize_bag.svg" alt=""></a>
+            <a href="signin.html"><img class="px-2" src="assets/icons/prime_user.svg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </a>
+      </div>
 
-        </nav>
-    </header>
+      <div class="navbar-collapse collapse justify-content-sm-center order-sm-2" id="navbarNav" style>
+        <ul class="navbar-nav">
+          <li class="nav-item mx-1 mx-md-4">
+            <a class="nav-link custom-navlink" href="menu-beverage.php">Menu</span></a>
+          </li>
+          <li class="nav-item mx-1 mx-md-4">
+            <a class="nav-link custom-navlink" href="#about">About</a>
+          </li>
+          <li class="nav-item mx-1 mx-md-4">
+            <a class="nav-link custom-navlink" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+  </header>
 
 
   <?php
@@ -55,6 +55,7 @@ require_once('conn.php');
   // panggil data
   $data = mysqli_query($koneksi, $query);
   $menu = mysqli_fetch_array($data);
+  $type = $menu['type'];
   ?>
 
   <main>
@@ -66,40 +67,96 @@ require_once('conn.php');
         <div class="line"></div>
         <form action="" method="post">
           <table class="text-start m-3">
-            <tr>
-              <td class="fw-bold"><label class="px-3" for="size">Size:</label></td>
-              <td class="fw-bold">
-                <select name="size" id="size">
-                  <option value="Tall">Tall (12 fl oz)</option>
-                  <option value="Grande">Grande (16 fl oz)</option>
-                  <option value="Venti">Venti (24 fl oz)</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td class="fw-bold"><label class="px-3" for="milk">Milk:</label></td>
-              <td class="fw-bold">
-                <select name="milk" id="milk">
-                  <option value="Whole Milk">Whole Milk</option>
-                  <option value="Nonfat Milk">Nonfat Milk</option>
-                  <option value="Vanilla Sweet Cream">Vanilla Sweet Cream</option>
-                  <option value="Almond">Almond</option>
-                  <option value="Oatmilk">Oatmilk</option>
-                  <option value="Coconut">Coconut</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td class="fw-bold"><label class="px-3" for="toppings">Toppings:</label></td>
-              <td class="fw-bold">
-                <select name="toppings" id="toppings">
-                  <option value="Extra Whipped Cream">Extra Whipped Cream</option>
-                  <option value="Light Whipped Cream">Light Whipped Cream</option>
-                  <option value="No Whipped Cream">No Whipped Cream</option>
-                  <option value="Whipped Cream">Whipped Cream</option>
-                </select>
-              </td>
-            </tr>
+            <?php
+            if ($type == 'coffee') {
+              echo '
+        <tr>
+          <td class="fw-bold"><label class="px-3" for="size">Size:</label></td>
+          <td class="fw-bold">
+            <select name="size" id="size">
+              <option value="Short">Short (8 fl oz)</option>
+              <option value="Tall">Tall (12 fl oz)</option>
+              <option value="Grande">Grande (16 fl oz)</option>
+              <option value="Venti">Venti (24 fl oz)</option>
+              <option value="Trenta">Trenta (30 fl oz)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="fw-bold"><label class="px-3" for="addins">Add-ins:</label></td>
+          <td class="fw-bold">
+            <select name="addins" id="addins">
+              <option value="Extra Ice">Extra Ice</option>
+              <option value="Light Ice">Light Ice</option>
+              <option value="No Ice">No Ice</option>
+              <option value="Ice">Ice</option>
+              <option value="Hot">Hot</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="fw-bold"><label class="px-3" for="toppings">Toppings:</label></td>
+          <td class="fw-bold">
+            <select name="toppings" id="toppings">
+              <option value="Extra Cold Foam">Extra Cold Foam</option>
+              <option value="Light Cold Foam">Light Cold Foam</option>
+              <option value="No Cold Foam">No Cold Foam</option>
+              <option value="Cold Foam">Cold Foam</option>
+            </select>
+          </td>
+        </tr>
+      ';
+            } elseif ($type == 'dessert') {
+              echo '
+        <tr>
+          <td class="fw-bold"><label class="px-3" for="warm">Warming</label></td>
+          <td class="fw-bold">
+            <select name="warm" id="warm">
+              <option value="Warmed">Warmed</option>
+              <option value="Not Warmed">Not Warmed</option>
+            </select>
+          </td>
+        </tr>
+        ';
+            } else {
+              echo '
+        <tr>
+          <td class="fw-bold"><label class="px-3" for="size">Size:</label></td>
+          <td class="fw-bold">
+            <select name="size" id="size">
+              <option value="Tall">Tall (12 fl oz)</option>
+              <option value="Grande">Grande (16 fl oz)</option>
+              <option value="Venti">Venti (24 fl oz)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="fw-bold"><label class="px-3" for="milk">Milk:</label></td>
+          <td class="fw-bold">
+            <select name="milk" id="milk">
+              <option value="Whole Milk">Whole Milk</option>
+              <option value="Nonfat Milk">Nonfat Milk</option>
+              <option value="Vanilla Sweet Cream">Vanilla Sweet Cream</option>
+              <option value="Almond">Almond</option>
+              <option value="Oatmilk">Oatmilk</option>
+              <option value="Coconut">Coconut</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="fw-bold"><label class="px-3" for="toppings">Toppings:</label></td>
+          <td class="fw-bold">
+            <select name="toppings" id="toppings">
+              <option value="Extra Whipped Cream">Extra Whipped Cream</option>
+              <option value="Light Whipped Cream">Light Whipped Cream</option>
+              <option value="No Whipped Cream">No Whipped Cream</option>
+              <option value="Whipped Cream">Whipped Cream</option>
+            </select>
+          </td>
+        </tr>
+      ';
+            }
+            ?>
           </table>
           <div class="qty my-2">
             <span class="fw-bold decrease">-</span>
@@ -108,7 +165,7 @@ require_once('conn.php');
           </div>
           <input type="text" value="<?php echo $menu['price'] ?>" class="text-center fw-bold mb-2" id="price" name="price" disabled>
           <input type="hidden" id="total" name="total">
-          <button class="pri-btn mb-3"type="submit" name="order">add to order</button>
+          <button class="pri-btn mb-3" type="submit" name="order">add to order</button>
         </form>
       </div>
     </div>
@@ -159,15 +216,28 @@ if (isset($_POST['order'])) {
   // masukkan data form ke dalam variable
   $item = $menu['item'];
   $price = $menu['price'];
+  $type = $menu['type'];
+  $image = $menu['image'];
   $qty = $_POST['qty'];
-  $total = $_POST['total'];
-  $size = $_POST['size'];
-  $milk = $_POST['milk'];
-  $toppings = $_POST['toppings'];
-  $details = $size . ', ' . $milk . ', ' . $toppings;
+  $total = $_POST['total'] == '' ? $price : $_POST['total'];
+
+  if ($type == 'coffee') {
+    $size = $_POST['size'];
+    $addins = $_POST['addins'];
+    $toppings = $_POST['toppings'];
+    $details = $size . ', ' . $addins . ', ' . $toppings;
+  } elseif ($type == 'dessert') {
+    $warm = $_POST['warm'];
+    $details = $warm;
+  } else {
+    $size = $_POST['size'];
+    $milk = $_POST['milk'];
+    $toppings = $_POST['toppings'];
+    $details = $size . ', ' . $milk . ', ' . $toppings;
+  }
 
   //insert data ke database
-  $query = "INSERT INTO tb_orders VALUES ('', '$item', '$price', '$qty', '$total', '', '$details')";
+  $query = "INSERT INTO tb_orders VALUES ('', '$item', '$price', '$qty', '$total', '', '$details', '$type','$image','$size','$addins','$toppings','$milk','$warm')";
   $result = mysqli_query($koneksi, $query);
 
   if (!$result) {
@@ -176,6 +246,5 @@ if (isset($_POST['order'])) {
 
   echo "<script>
   alert('Order uploaded!');</script>";
-
 }
 ?>

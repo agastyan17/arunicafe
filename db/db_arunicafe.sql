@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 03:46 PM
+-- Generation Time: Dec 07, 2023 at 04:26 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -46,7 +46,8 @@ INSERT INTO `tb_menu` (`id_menu`, `item`, `price`, `image`, `type`) VALUES
 (1, 'Chocolate Cookie Crumble Crème Frappuccino®', '64.000', 'menu-1.png', 'beverage'),
 (2, 'Mocha Cookie Crumble Frappuccino®', '64.000', 'menu-2.png', 'beverage'),
 (3, 'Caramel Ribbon Crunch Frappuccino', '64.000', 'menu-3.png', 'beverage'),
-(4, 'Matcha Crème Frappuccino®', '52.000', 'menu-4.png', 'beverage');
+(4, 'Matcha Crème Frappuccino®', '52.000', 'menu-4.png', 'beverage'),
+(5, 'Chocolate Cream Cold Brew', '52.000', 'menu-5.png', 'coffee');
 
 -- --------------------------------------------------------
 
@@ -62,17 +63,24 @@ CREATE TABLE `tb_orders` (
   `qty` int(11) NOT NULL,
   `total` varchar(30) NOT NULL,
   `discount` varchar(20) NOT NULL DEFAULT '0',
-  `details` varchar(255) NOT NULL
+  `details` varchar(255) NOT NULL,
+  `type` enum('beverage','dessert','coffee') NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `size` varchar(50) NOT NULL,
+  `addins` varchar(50) NOT NULL,
+  `toppings` varchar(50) NOT NULL,
+  `milk` varchar(50) NOT NULL,
+  `warm` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_orders`
 --
 
-INSERT INTO `tb_orders` (`id_orders`, `item`, `price`, `qty`, `total`, `discount`, `details`) VALUES
-(1, 'Chocolate Cookie Crumble Crème Frappuccino®', '64.000', 1, '', '', 'Tall, Whole Milk, Extra Whipped Cream'),
-(2, 'Mocha Cookie Crumble Frappuccino®', '64.000', 2, '128.000', '', 'Tall, Whole Milk, Extra Whipped Cream'),
-(3, 'Mocha Cookie Crumble Frappuccino®', '64.000', 2, '128.000', '', 'Venti, Almond, No Whipped Cream');
+INSERT INTO `tb_orders` (`id_orders`, `item`, `price`, `qty`, `total`, `discount`, `details`, `type`, `image`, `size`, `addins`, `toppings`, `milk`, `warm`) VALUES
+(11, 'Matcha Crème Frappuccino®', '52.000', 2, '52.000', '', 'Grande, Nonfat Milk, Light Whipped Cream', 'beverage', '', 'Grande', '', 'Light Whipped Cream', 'Nonfat Milk', ''),
+(12, 'Chocolate Cream Cold Brew', '52.000', 1, '52.000', '', 'Tall, No Ice, Light Cold Foam', 'coffee', '', '', '', '', '', ''),
+(13, 'Chocolate Cookie Crumble Crème Frappuccino®', '64.000', 1, '64.000', '', 'Venti, Almond, Light Whipped Cream', 'beverage', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -118,13 +126,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_menu`
 --
 ALTER TABLE `tb_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_orders`
 --
 ALTER TABLE `tb_orders`
-  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
