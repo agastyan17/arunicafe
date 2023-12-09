@@ -61,7 +61,7 @@ require_once('conn.php');
     <main>
         <div id="order" class="p-3 mx-auto align-self-center">
             <div class="wrapper text-center d-flex my-auto flex-column align-items-center shadow p-4">
-                <img src="assets/imgs/<?php echo $menu['image'] ?>" alt="">
+                <img src="assets/imgs/<?php echo $orders['image'] ?>" alt="">
                 <h1 class="title fw-bold"><?php echo $orders['item'] ?></h1>
                 <p class="custom fw-bold">Customize</p>
                 <div class="line"></div>

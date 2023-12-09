@@ -226,18 +226,21 @@ if (isset($_POST['order'])) {
     $addins = $_POST['addins'];
     $toppings = $_POST['toppings'];
     $details = $size . ', ' . $addins . ', ' . $toppings;
+
+    $query = "INSERT INTO tb_orders VALUES ('', '$item', '$price', '$qty', '$total', '', '$details', '$type','$image','$size','$addins','$toppings','','')";
   } elseif ($type == 'dessert') {
     $warm = $_POST['warm'];
     $details = $warm;
+
+    $query = "INSERT INTO tb_orders VALUES ('', '$item', '$price', '$qty', '$total', '', '$details', '$type','$image','','','','','$warm')";
   } else {
     $size = $_POST['size'];
     $milk = $_POST['milk'];
     $toppings = $_POST['toppings'];
     $details = $size . ', ' . $milk . ', ' . $toppings;
-  }
 
-  //insert data ke database
-  $query = "INSERT INTO tb_orders VALUES ('', '$item', '$price', '$qty', '$total', '', '$details', '$type','$image','$size','$addins','$toppings','$milk','$warm')";
+    $query = "INSERT INTO tb_orders VALUES ('', '$item', '$price', '$qty', '$total', '', '$details', '$type','$image','$size','','$toppings','$milk','')";
+  }
   $result = mysqli_query($koneksi, $query);
 
   if (!$result) {

@@ -19,6 +19,3 @@
     border: 1px solid var(--primary);
     border-radius: 100% 100% 0 0 ;
 }
-.pay td {
-    font-weight: bold;
-}

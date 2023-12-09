@@ -1,0 +1,14 @@
+.menu-items {
+    color: #112D4E;
+    text-decoration: none;
+
+    &:hover {
+        color: #3F72AF;
+    }
+}
+.active {
+    color: #3F72AF;
+    text-decoration: underline;
+}
+
+@import '/bootstrap/css/bootstrap.min.css'

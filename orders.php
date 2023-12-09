@@ -49,61 +49,56 @@ require_once('conn.php');
   </header>
 
   <main>
-    <div class="container text-center d-flex my-auto flex-column align-items-center">
+    <div class="container text-center m-auto">
       <h1 class="text-center fw-bold">Your Orders</h1>
-      <div class="tbl">
-        <table class="my-5 text-start table table-hover">
-          <tr>
-            <th></th>
-            <th>Items</th>
-            <th>Price</th>
-            <th>Qty</th>
-            <th>Total</th>
-            <th>Details</th>
-            <th></th>
-          </tr>
-          <?php
-          $query = "SELECT * FROM tb_orders";
-          // panggil data
-          $data = mysqli_query($koneksi, $query);
-          $no = 1;
-
-          while ($order = mysqli_fetch_assoc($data)) :
-          ?>
+      <form action="" method="post">
+        <div class="tbl">
+          <table class="my-5 text-start table table-hover">
             <tr>
-              <td><?php echo $no++; ?></td>
-              <td><?php echo $order['item']; ?></td>
-              <td><?php echo $order['price']; ?></td>
-              <td><?php echo $order['qty']; ?></td>
-              <td><?php echo $order['total']; ?></td>
-              <td><?php echo $order['details']; ?></td>
-              <td>
-                <div>
-                  <a href="edit.php?id=<?php echo $order['id_orders']; ?>"><img src="assets/imgs/edit.svg" alt=""></a>
-                  <a href="delete.php?id=<?php echo $order['id_orders']; ?>" onclick="return confirm('Delete order?')"><img src="assets/imgs/delete.svg" alt=""></a>
-                </div>
-              </td>
+              <th></th>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Total</th>
+              <th>Details</th>
+              <th></th>
             </tr>
-          <?php
-          endwhile;
-          ?>
-        </table>
-      </div>
+            <?php
+            $query = "SELECT * FROM tb_orders";
+            // panggil data
+            $data = mysqli_query($koneksi, $query);
+            $no = 1;
+            $totalSum = 0;
 
-      <div class="pay d-flex flex-column align-items-center text-start">
-        <table class="mb-2">
-          <tr>
-            <td class="px-2">Total:</td>
-            <td class="px-2">10000</td>
-          </tr>
-          <tr>
-            <td class="px-2">Discount:</td>
-            <td class="px-2">10000</td>
-          </tr>
-        </table>
-        <h3 class="fw-bold">300.000</h3>
-        <button class="pri-btn">check out</button>
-      </div>
+            while ($order = mysqli_fetch_assoc($data)) :
+              $totalSum += $order['total'];
+            ?>
+              <tr>
+                <td><?php echo $no++; ?></td>
+                <td><?php echo $order['item']; ?></td>
+                <td><?php echo $order['price']; ?></td>
+                <td><?php echo $order['qty']; ?></td>
+                <td><?php echo $order['total']; ?></td>
+                <td><?php echo $order['details']; ?></td>
+                <td>
+                  <div class="d-flex flex-column flex-lg-row">
+                    <a href="edit.php?id=<?php echo $order['id_orders']; ?>"><img class="me-2 mb-4 mb-lg-0" src="assets/imgs/edit.svg" alt=""></a>
+                    <a href="delete.php?id=<?php echo $order['id_orders']; ?>" onclick="return confirm('Delete order?')"><img src="assets/imgs/delete.svg" alt=""></a>
+                  </div>
+                </td>
+              </tr>
+            <?php
+            endwhile;
+            ?>
+          </table>
+        </div>
+
+        <div class="pay text-center col-6 col-md-4 col-lg-3 col-xl-2 mx-auto">
+            <h5 class="fw-bold mt-2">Total:</h5>
+            <h3 class="fw-bold"><?php echo isset($totalSum) ? number_format($totalSum, 3, '.', '.') : '0'; ?><h3>
+            <button class="pri-btn mt-3" type="submit" name="checkout">check out</button>
+        </div>
+      </form>
     </div>
   </main>
 
@@ -112,3 +107,36 @@ require_once('conn.php');
 </body>
 
 </html>
+
+<!--  -->
+
+<?php
+if (isset($_POST['checkout'])) {
+  // Assuming $data is the result set from your query
+  mysqli_data_seek($data, 0); // Reset the data pointer to the beginning
+
+  while ($order = mysqli_fetch_assoc($data)) {
+    $id = $order['id_orders'];
+    $item = $order['item'];
+    $price = $order['price'];
+    $qty = $order['qty'];
+    $total = $order['total'];
+    $details = $order['details'];
+    $query = "INSERT INTO tb_history VALUES ('$id', '$item', '$price', '$qty', '$total', '$details','');";
+
+    if (mysqli_query($koneksi, $query)) {
+      // Insert successful, now delete from tb_orders
+      $delete = "DELETE FROM tb_orders WHERE id_orders = '$id'";
+
+      if (!mysqli_query($koneksi, $delete)) {
+        echo "Error deleting order: " . mysqli_error($koneksi);
+      }
+    } else {
+      echo "Error inserting into history: " . mysqli_error($koneksi);
+    }
+  }
+}
+
+// Close the database connection
+mysqli_close($koneksi);
+?>

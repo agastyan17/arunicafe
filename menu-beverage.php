@@ -12,6 +12,7 @@ require_once('conn.php');
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/menu.css">
+  <link rel="stylesheet" href="assets/css/menu.scss">
 </head>
 
 <body>
@@ -56,9 +57,9 @@ require_once('conn.php');
       </div>
       <div class="menu-list mt-5">
         <ul class="justify-content-center">
-          <li><a class="nav-link fw-bold" href="menu-coffee.php">Coffees</a></li>
-          <li class="active"><a class="nav-link fw-bold" href="menu-beverage.php">Beverages</a></li>
-          <li><a class="nav-link fw-bold" href="menu-dessert.php">Desserts</a></li>
+          <li><a class="menu-items fw-bold" href="menu-coffee.php">Coffees</a></li>
+          <li><a class="menu-items active fw-bold" href="menu-beverage.php">Beverages</a></li>
+          <li><a class="menu-items fw-bold" href="menu-dessert.php">Desserts</a></li>
         </ul>
       </div>
 
