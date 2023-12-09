@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2023 at 04:26 PM
+-- Generation Time: Dec 09, 2023 at 12:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -22,6 +22,46 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `db_arunicafe` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `db_arunicafe`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_history`
+--
+
+DROP TABLE IF EXISTS `tb_history`;
+CREATE TABLE `tb_history` (
+  `id_orders` int(11) NOT NULL,
+  `items` varchar(50) NOT NULL,
+  `price` varchar(20) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `total` varchar(30) NOT NULL,
+  `details` varchar(255) NOT NULL,
+  `order_time` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_history`
+--
+
+INSERT INTO `tb_history` (`id_orders`, `items`, `price`, `qty`, `total`, `details`, `order_time`) VALUES
+(14, 'Matcha Crème Frappuccino®', '52.000', 2, '104.000', 'Grande, Vanilla Sweet Cream, No Whipped Cream', '0000-00-00 00:00:00'),
+(15, 'Chocolate Cream Cold Brew', '52.000', 2, '104.000', 'Grande, Light Ice, Extra Cold Foam', '0000-00-00 00:00:00'),
+(16, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(17, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(18, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(19, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(20, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(21, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(22, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(23, 'Chocolate Cookie Crumble Crème Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(24, 'Chocolate Cookie Crumble Crème Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(25, 'Mocha Cookie Crumble Frappuccino®', '64.000', 2, '128.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(26, 'Mocha Cookie Crumble Frappuccino®', '64.000', 3, '192.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(27, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(28, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(29, 'Mocha Cookie Crumble Frappuccino®', '64.000', 1, '64.000', 'Tall, Whole Milk, Extra Whipped Cream', '0000-00-00 00:00:00'),
+(30, 'Matcha Crème Frappuccino®', '52.000', 1, '52.000', 'Tall, Whole Milk, Extra Whipped Cream', '2023-12-09 11:23:31');
 
 -- --------------------------------------------------------
 
@@ -66,21 +106,12 @@ CREATE TABLE `tb_orders` (
   `details` varchar(255) NOT NULL,
   `type` enum('beverage','dessert','coffee') NOT NULL,
   `image` varchar(50) NOT NULL,
-  `size` varchar(50) NOT NULL,
-  `addins` varchar(50) NOT NULL,
-  `toppings` varchar(50) NOT NULL,
-  `milk` varchar(50) NOT NULL,
-  `warm` varchar(50) NOT NULL
+  `size` varchar(50) DEFAULT NULL,
+  `addins` varchar(50) DEFAULT NULL,
+  `toppings` varchar(50) DEFAULT NULL,
+  `milk` varchar(50) DEFAULT NULL,
+  `warm` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tb_orders`
---
-
-INSERT INTO `tb_orders` (`id_orders`, `item`, `price`, `qty`, `total`, `discount`, `details`, `type`, `image`, `size`, `addins`, `toppings`, `milk`, `warm`) VALUES
-(11, 'Matcha Crème Frappuccino®', '52.000', 2, '52.000', '', 'Grande, Nonfat Milk, Light Whipped Cream', 'beverage', '', 'Grande', '', 'Light Whipped Cream', 'Nonfat Milk', ''),
-(12, 'Chocolate Cream Cold Brew', '52.000', 1, '52.000', '', 'Tall, No Ice, Light Cold Foam', 'coffee', '', '', '', '', '', ''),
-(13, 'Chocolate Cookie Crumble Crème Frappuccino®', '64.000', 1, '64.000', '', 'Venti, Almond, Light Whipped Cream', 'beverage', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -132,7 +163,7 @@ ALTER TABLE `tb_menu`
 -- AUTO_INCREMENT for table `tb_orders`
 --
 ALTER TABLE `tb_orders`
-  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tb_user`

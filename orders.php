@@ -122,7 +122,7 @@ if (isset($_POST['checkout'])) {
     $qty = $order['qty'];
     $total = $order['total'];
     $details = $order['details'];
-    $query = "INSERT INTO tb_history VALUES ('$id', '$item', '$price', '$qty', '$total', '$details','');";
+    $query = "INSERT INTO tb_history (id_orders, items, price, qty, total, details) VALUES ('$id', '$item', '$price', '$qty', '$total', '$details');";
 
     if (mysqli_query($koneksi, $query)) {
       // Insert successful, now delete from tb_orders
