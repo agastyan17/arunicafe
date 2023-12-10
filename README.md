@@ -1,2 +1,3 @@
-# zidan (effort dikit) bantu connect database.. tapi salah. the thoughts still count tho
-# agas.. figma.. download satu foto.. pinjemin laptop.. bantu ide.. abis itu afk (kerjain tergantung mood (nyebelin bgt!!!))
+### zidan (effort dan ad niat) bantu connect database. tapi aku ganti soalnya ribet..
+# agas.. pinjemin laptop.. bantu ide sama figma dikit. abis itu afk (kerjain tergantung mood katanya (nyebelin bgt!!!))
+# udah bikin login di laptop agas tp gak dipush/dikirim sama agas SAMA SEKALI (ak dah tagih 3 kali)

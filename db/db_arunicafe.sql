@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2023 at 12:24 PM
+-- Generation Time: Dec 10, 2023 at 12:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -83,11 +83,18 @@ CREATE TABLE `tb_menu` (
 --
 
 INSERT INTO `tb_menu` (`id_menu`, `item`, `price`, `image`, `type`) VALUES
-(1, 'Chocolate Cookie Crumble Crème Frappuccino®', '64.000', 'menu-1.png', 'beverage'),
-(2, 'Mocha Cookie Crumble Frappuccino®', '64.000', 'menu-2.png', 'beverage'),
-(3, 'Caramel Ribbon Crunch Frappuccino', '64.000', 'menu-3.png', 'beverage'),
-(4, 'Matcha Crème Frappuccino®', '52.000', 'menu-4.png', 'beverage'),
-(5, 'Chocolate Cream Cold Brew', '52.000', 'menu-5.png', 'coffee');
+(1, 'Chocolate Cookie Crumble Crème Frappuccino', '28.000', 'menu-1.png', 'beverage'),
+(2, 'Mocha Cookie Crumble Frappuccino®', '25.000', 'menu-2.png', 'beverage'),
+(3, 'Caramel Ribbon Crunch Frappuccino', '23.000', 'menu-3.png', 'beverage'),
+(4, 'Matcha Crème Frappuccino®', '18.000', 'menu-4.png', 'beverage'),
+(5, 'Chocolate Cream Cold Brew', '23.000', 'menu-5.png', 'coffee'),
+(6, 'Strawberry Pancakes', '30.000', 'strawberry-pancake.png', 'dessert'),
+(7, 'Chocolate Muffin', '15.000', 'choco-muffin.png', 'dessert'),
+(8, 'Cookies!!', '15.000', 'ori-cookies.png', 'dessert'),
+(9, 'Brown Sugar Espresso', '20.000', 'brown-sugar-espresso.png', 'coffee'),
+(10, 'Coffee Brew', '18.000', 'coffee-brew.png', 'coffee'),
+(11, 'Caramel Macchiato', '22.000', 'ice-caramel-macchiato.png', 'coffee'),
+(12, 'Stawberry Shortcake', '15.000', 'strawberry-cake.png', 'dessert');
 
 -- --------------------------------------------------------
 
@@ -157,7 +164,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_menu`
 --
 ALTER TABLE `tb_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_orders`
