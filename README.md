@@ -1,1 +1,2 @@
-# arunicafe
+# zidan (effort dikit) bantu connect database.. tapi salah. the thoughts still count tho
+# agas.. figma.. download satu foto.. pinjemin laptop.. bantu ide.. abis itu afk (kerjain tergantung mood (nyebelin bgt!!!))
